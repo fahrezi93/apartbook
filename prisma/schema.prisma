@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String @id @default(cuid())
+  username     String @unique
+  passwordHash String @map("password_hash")
+
+  @@map("admins")
+}
+
+model Apartment {
+  id            String   @id @default(cuid())
+  name          String
+  slug          String   @unique
+  locationCity  String   @map("location_city")
+  address       String
+  description   String   @db.Text
+  facilities    Json     @default("[]")
+  contactWa     String   @map("contact_wa")
+  coverImageUrl String   @map("cover_image_url")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  rooms Room[]
+
+  @@map("apartments")
+}
+
+model Room {
+  id            String @id @default(cuid())
+  apartmentId   String @map("apartment_id")
+  typeName      String @map("type_name")
+  pricePerMonth Int    @map("price_per_month")
+  roomSize      String @map("room_size")
+  description   String @db.Text
+  imageUrl      String @map("image_url")
+
+  apartment Apartment @relation(fields: [apartmentId], references: [id], onDelete: Cascade)
+
+  @@map("rooms")
+}
