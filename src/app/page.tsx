@@ -20,12 +20,12 @@ export default async function HomePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gray-50 border-b border-gray-200 dark:bg-gray-950 dark:border-gray-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+      <section className="relative overflow-hidden bg-gray-50 border-b border-gray-200 dark:bg-gray-950 dark:border-gray-800 lg:min-h-0 min-h-[calc(100vh-70px)] flex flex-col justify-center">
+        <div className="w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
             {/* Left Column: Text & Search */}
-            <div className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-6 z-10 mx-auto lg:mx-0 max-w-2xl lg:max-w-none">
+            <div className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-8 z-10 mx-auto lg:mx-0 max-w-2xl lg:max-w-none w-full">
 
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100/50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 ring-1 ring-inset ring-blue-600/20 text-xs font-semibold uppercase tracking-wider">
@@ -34,7 +34,7 @@ export default async function HomePage() {
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-[4rem] font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight lg:leading-[1.1] mx-auto lg:mx-0">
+              <h1 className="text-[3.5rem] sm:text-7xl lg:text-[4.5rem] font-extrabold tracking-tight text-gray-900 dark:text-white leading-[1.05] lg:leading-[1.1] mx-auto lg:mx-0">
                 Temukan <br />
                 Apartemen{" "}
                 <span className="text-blue-600 dark:text-blue-500 relative whitespace-nowrap block mt-1 lg:inline lg:mt-0">
@@ -46,7 +46,7 @@ export default async function HomePage() {
               </h1>
 
               {/* Subheadline */}
-              <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed px-2 lg:px-0">
                 Platform penyewaan apartemen terpercaya di seluruh Indonesia. Bandingkan harga, fasilitas, dan hubungi pemilik langsung via WhatsApp tanpa perantara.
               </p>
 
@@ -90,7 +90,7 @@ export default async function HomePage() {
               </div>
 
               {/* Social Proof */}
-              <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-gray-500 dark:text-gray-400 font-medium">
+              <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-gray-500 dark:text-gray-400 font-medium pt-4 lg:pt-0">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-gray-950 bg-gray-200 dark:bg-gray-800 overflow-hidden">
@@ -165,7 +165,7 @@ export default async function HomePage() {
           </div>
 
           {apartments.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {apartments.map((apt) => (
                 <ApartmentCard
                   key={apt.id}

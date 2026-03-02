@@ -32,21 +32,23 @@ export function ApartmentCard({
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     {/* Removed bg-gradient entirely */}
-                    <Badge className="absolute top-3 right-3 bg-white text-gray-900 hover:bg-gray-50 border border-gray-200 shadow-sm font-medium">
-                        <MapPin className="h-3 w-3 mr-1 text-gray-500" />
+                    <Badge className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-white text-gray-900 hover:bg-gray-50 border border-gray-200 shadow-sm font-medium px-2 py-0.5 sm:px-2.5 sm:py-0.5 text-[10px] sm:text-xs">
+                        <MapPin className="h-2.5 w-2.5 sm:h-3 sm:w-3 mr-1 text-gray-500" />
                         {locationCity}
                     </Badge>
                 </div>
-                <CardContent className="p-4 space-y-2">
-                    <h3 className="font-semibold text-lg line-clamp-1 group-hover:text-blue-600 transition-colors text-gray-900 dark:text-gray-100">
+                <CardContent className="p-3 sm:p-4 space-y-1.5 sm:space-y-2">
+                    <h3 className="font-semibold text-sm sm:text-lg line-clamp-1 group-hover:text-blue-600 transition-colors text-gray-900 dark:text-gray-100 leading-tight">
                         {name}
                     </h3>
-                    <div className="flex items-baseline gap-1">
-                        <span className="text-sm text-gray-500">Mulai dari</span>
-                        <span className="text-lg font-bold text-blue-600 dark:text-blue-500">
-                            {formatPrice(startingPrice)}
-                        </span>
-                        <span className="text-xs text-gray-500">/bulan</span>
+                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-1">
+                        <span className="text-[10px] sm:text-sm text-gray-500 leading-none sm:leading-normal">Mulai dari</span>
+                        <div className="flex items-baseline gap-0.5 sm:gap-1">
+                            <span className="text-sm sm:text-lg font-bold text-blue-600 dark:text-blue-500 leading-none sm:leading-normal">
+                                {formatPrice(startingPrice)}
+                            </span>
+                            <span className="text-[10px] sm:text-xs text-gray-500">/bulan</span>
+                        </div>
                     </div>
                 </CardContent>
             </Card>
