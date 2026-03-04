@@ -42,7 +42,7 @@ export default async function ApartmentDetailPage({ params }: PageProps) {
 
             <main className="flex-1">
                 {/* Cover Image */}
-                <div className="relative h-64 md:h-96 overflow-hidden">
+                <div className="relative h-[280px] sm:h-[350px] lg:h-[450px] overflow-hidden">
                     <Image
                         src={apartment.coverImageUrl}
                         alt={apartment.name}
@@ -51,26 +51,27 @@ export default async function ApartmentDetailPage({ params }: PageProps) {
                         priority
                         sizes="100vw"
                     />
-                    <div className="absolute inset-0 bg-black/50" />
+                    <div className="absolute inset-0 bg-black/40" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
-                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-10">
                         <div className="mx-auto max-w-7xl">
                             <Link href="/search">
                                 <Button
                                     variant="ghost"
                                     size="sm"
-                                    className="text-white/80 hover:text-white hover:bg-white/10 mb-4"
+                                    className="text-white/80 hover:text-white hover:bg-white/10 mb-2 lg:mb-4 px-2 lg:px-3 h-8 lg:h-9 text-xs lg:text-sm"
                                 >
-                                    <ArrowLeft className="h-4 w-4 mr-1" />
+                                    <ArrowLeft className="h-3.5 w-3.5 lg:h-4 lg:w-4 mr-1 lg:mr-2" />
                                     Kembali
                                 </Button>
                             </Link>
-                            <h1 className="text-3xl md:text-4xl font-bold text-white">
+                            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white leading-tight">
                                 {apartment.name}
                             </h1>
-                            <div className="flex items-center gap-2 mt-2 text-white/80">
-                                <MapPin className="h-4 w-4" />
-                                <span>
+                            <div className="flex items-center gap-1.5 lg:gap-2 mt-1.5 lg:mt-3 text-white/90 text-sm lg:text-base">
+                                <MapPin className="h-4 w-4 shrink-0" />
+                                <span className="line-clamp-1 lg:line-clamp-none">
                                     {apartment.address}, {apartment.locationCity}
                                 </span>
                             </div>
@@ -78,10 +79,10 @@ export default async function ApartmentDetailPage({ params }: PageProps) {
                     </div>
                 </div>
 
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 lg:py-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
                         {/* Main Content */}
-                        <div className="lg:col-span-2 space-y-8">
+                        <div className="lg:col-span-2 space-y-8 lg:space-y-10">
                             {/* Description */}
                             <section>
                                 <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
